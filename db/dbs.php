@@ -1,7 +1,7 @@
 <?php
 
 // Create connection
-$db = new mysqli("dbwol.crgpm7pxclx2.us-east-2.rds.amazonaws.com", "autuser", "Pinoccio..11", "DBTEST", 3306);
+$db = new mysqli("122.8.178.249", "automatizacion", "Aut0m4_u23", "DBCLARO", 3306);
 if ($db->connect_error) {
     die('Error de Conexión (' . $db->connect_errno . ') '
             . $db->connect_error);
