@@ -26,6 +26,10 @@ require "../db/dbs.php";
   $queryMes = "SELECT * FROM DBCLARO.AYER;";
   $resultMes = $db->query($queryMes);
   $fechaAyer = $resultMes->fetch_array(MYSQLI_NUM);
+  // Vista del mes 
+  $queryMes = "SELECT MONTH(CURDATE());";
+  $resultMes = $db->query($queryMes);
+  $fechaMes = $resultMes->fetch_array(MYSQLI_NUM);
 
   if($flagToDayTrue != true){
     /* Fechas para parametros del API*/ 
@@ -35,9 +39,8 @@ require "../db/dbs.php";
         $StartDay_OFF = "2023-02-01";
         $EndDay_OFF = "2023-02-01";
     /* Fechas para parametros del API*/ 
-  $queryMes = "SELECT MONTH(CURDATE());";
-  $resultMes = $db->query($queryMes);
-  $fechaMes = $resultMes->fetch_array(MYSQLI_NUM);
+
+
 
 
 
@@ -147,7 +150,7 @@ require "../db/dbs.php";
         //echo "Connected successfully";
 
 
-         $sql = " INSERT INTO `DBCLARO`.`LINK_CAMPANA_AT` (`Fecha_insert`, `Account name`, 
+         $sql1 = " INSERT INTO `DBCLARO`.`LINK_CAMPANA_AT` (`Fecha_insert`, `Account name`, 
          `Account ID`, `Campaign name`, `Campaign status`, `Campaign start date`,
           `Campaign end date`, `Campaign total budget`, `Campaign objective type`, 
           `Campaign cost type`, `Campaign group name`, `Campaign group status`, 
@@ -161,16 +164,16 @@ require "../db/dbs.php";
           '$dato17' ,'$dato18'  ,'$dato19'  ,'$dato20'  ,'$dato21'  ,'$dato22'  ,
           '$dato23' ,'$dato24'  ,'$dato25'  ,'$dato26'  ,'$dato27'  ,'$dato28'  );";
 
-      if (mysqli_query($conn, $sql)) 
-      {
-        $RepInsertSF =  "New_SM".$id_1;
-        echo "<br>"; 
-        echo  $RepInsertSF;
+      // if (mysqli_query($conn, $sql)) 
+      // {
+      //   $RepInsertSF =  "New_SM".$id_1;
+      //   echo "<br>"; 
+      //   echo  $RepInsertSF;
       
-      } else {
-        $RepInsertER =  "Error: " . $sql . "<br>" . mysqli_error($conn);
-        echo $RepInsertER;
-      }
+      // } else {
+      //   $RepInsertER =  "Error: " . $sql . "<br>" . mysqli_error($conn);
+      //   echo $RepInsertER;
+      // }
       mysqli_close($conn);
       // FIN DE INSERT DE LOS DATOS
       // INSERTAR LOG
