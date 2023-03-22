@@ -23,9 +23,9 @@ require "../db/dbs.php";
   }
 
   //solicita fecha para insertar
-  $queryAyer = "SELECT * FROM DBCLARO.AYER;";
-  $resulAyer = $db->query($queryAyer);
-  $fechaAyer = $resulAyer->fetch_array(MYSQLI_NUM);
+  $queryMes = "SELECT * FROM DBCLARO.AYER;";
+  $resultMes = $db->query($queryMes);
+  $fechaAyer = $resultMes->fetch_array(MYSQLI_NUM);
 
   if($flagToDayTrue != true){
     /* Fechas para parametros del API*/ 
@@ -35,6 +35,10 @@ require "../db/dbs.php";
         $StartDay_OFF = "2023-02-01";
         $EndDay_OFF = "2023-02-01";
     /* Fechas para parametros del API*/ 
+  $queryMes = "SELECT MONTH(CURDATE());";
+  $resultMes = $db->query($queryMes);
+  $fechaMes = $resultMes->fetch_array(MYSQLI_NUM);
+
 
 
     // Lectura de apis
