@@ -8,7 +8,7 @@ error_reporting(E_ALL ^ E_NOTICE);
 require "../db/dbs.php";
   $query = "SELECT * FROM BITACORA.BITACORA_TEL_MCE_AT WHERE (extract(day from FECHA_INSERT) = DAY( current_date()));";
   $select1 = $db->query($query);
-var_dump($select1);
+
 
   while($row = $select1->fetch_assoc()) {
     $flagToDay = $row['FLAG'];
